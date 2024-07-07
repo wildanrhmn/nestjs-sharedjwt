@@ -8,11 +8,15 @@ import { FacebookStrategy } from '../strategies/facebook-oauth.strategy';
 @Module({
   imports: [
     PassportModule,
-    JwtModule.register({
-      secret: process.env.AUTH_JWT_SECRET,
-      signOptions: {
-        expiresIn: process.env.AUTH_JWT_TOKEN_EXPIRES_IN,
-      },
+    JwtModule.registerAsync({
+      useFactory: async() => {
+        return {
+          secret: process.env.AUTH_JWT_SECRET,
+          signOptions: {
+            expiresIn: process.env.AUTH_JWT_TOKEN_EXPIRES_IN,
+          },
+        }
+      }
     }),
   ],
   providers: [JwtStrategy, GoogleStrategy, FacebookStrategy],
