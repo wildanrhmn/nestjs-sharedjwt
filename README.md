@@ -18,7 +18,7 @@ Add the shared package to your microservice by specifying the GitHub repository 
 ```json
 {
   "dependencies": {
-    "loopy-sharedjwt": "git+https://github.com/wildanrhmn/nestjs-sharedjwt.git"
+    "nestjs-sharedjwt": "git+https://github.com/wildanrhmn/nestjs-sharedjwt.git"
   }
 }
 ```
